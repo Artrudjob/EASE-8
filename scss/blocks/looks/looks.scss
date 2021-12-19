@@ -1,0 +1,85 @@
+$fontColor: #0A0A0A;
+
+@mixin font($ff, $fw, $fs, $fh, $ls) {
+    font-family: $ff;
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: $fh;
+    letter-spacing: $ls;
+    color: $fontColor;
+}
+
+%resetMargPadd {
+    margin: 0;
+    padding: 0;
+}
+
+.looks {
+    max-width: 1400px;
+    background-color: #FFFFFF;
+
+    &__title {
+        @extend %resetMargPadd;
+        @include font('Prompt', 500, 48px, 64px, 0.04em);
+    }
+
+    &__grid-container {
+        max-width: 100%;
+        margin-top: 40px;
+        margin-bottom: 80px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(140px, 350px));
+    }
+
+    &__fadeIn {
+        animation: fadeIn;
+        animation-duration: .5s;
+    }
+
+    &__fadeOut {
+        animation: fadeOut;
+        animation-duration: .5s;
+    }
+
+    &__img_visibility_hidden {
+        visibility: hidden;
+    }
+
+    @media screen and (max-width: 768px) {
+        &__title {
+            font-size: 32px;
+            line-height: 40px;
+        }
+
+        &__grid-container {
+            grid-template-columns: repeat(3, minmax(140px, 243px));
+        }
+        
+        &__img_display_none {
+            display: none;
+        }
+    }
+
+    &__img {
+        max-height: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    @media screen and (max-width: 600px) {
+        &__title {
+            font-size: 24px;
+            line-height: 32px;
+        }
+
+        &__grid-container {
+            margin-bottom: 40px;
+            margin-top: 20px;
+            grid-template-columns: repeat(2, minmax(140px, 1fr));
+        }
+
+        &__img_display_none {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,235 @@
+$bkColor: #E7E7E2;
+$fontColor: #0A0A0A;
+$wColor: #FFFFFF;
+
+%resetStylesBtn {
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin font-one ($ff, $fw, $fs, $fh, $ls) {
+    font-family: $ff;
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: $fh;
+    letter-spacing: $ls;
+    color: $wColor;
+}
+
+@mixin font($ff, $fw, $fs, $fh, $ls) {
+    font-family: $ff;
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: $fh;
+    letter-spacing: $ls;
+    color: $fontColor;
+}
+
+.header {
+    background-color: $bkColor;
+    position: relative;
+    
+    &__burger-btn {
+        @extend %resetStylesBtn;
+        width: 48px;
+        height: 48px;
+        background-image: url(../../../images/icon_menu-burger.svg);
+        position: absolute;
+        top: 20px;
+        left: 24px;
+    }
+
+    &__burger-btn_visibility_hidden {
+        visibility: hidden;
+    }
+
+    &__menu-btn_visibility_hidden {
+        visibility: hidden;
+    }
+
+    &__burger-btn:hover {
+        cursor: pointer;
+    }
+
+    &__menu-btn {
+        @extend %resetStylesBtn;
+        @include font('Prompt', 500, 16px, 24px, 0.02em);
+        position: absolute;
+        top: 32px;
+        left: 84px;
+    }
+
+    &__menu-btn:hover {
+        cursor: pointer;
+    }
+
+    &__flex-container {
+        margin: 0 auto; 
+        display: flex;
+        width: 1400px / 1440px * 100%;
+    }
+
+    &__img {
+        max-width: 700px / 1400px * 100%;
+        overflow: hidden;
+        object-fit: cover;
+        max-height: 934px;
+    }
+
+    &__box {
+        max-width: 700px / 1400px * 100%;
+        min-width: 485px;
+        position: absolute;
+        top: 310px;
+        right: 20px;
+    }
+
+    &__title {
+        @include font('Prompt', 500, 48px, 64px, 0.04em);
+        margin: 0;
+        padding: 0;
+        text-align: left;
+    }
+
+    &__subscrite-btn {
+        @extend %resetStylesBtn;
+        @include font('Prompt', 500, 16px, 24px, 0.02em);
+        width: 350px;
+        height: 48px;
+        background-color: $fontColor;
+        color: #FFFFFF;
+        margin-top: 32px;
+    }
+
+    &__subscrite-btn:hover {
+        cursor: pointer;
+    }
+
+    &__menu-container {
+        width: 480px;
+        height: 810px;
+        background-color: #000000;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &__close-menu {
+        @extend %resetStylesBtn;
+        background-image: url(../../../images/close.svg);
+        background-repeat: no-repeat;
+        overflow: hidden;
+        object-fit: cover;
+        width: 48px;
+        height: 48px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
+    &__navigation {
+        margin-top: 232px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__link {
+        display: inline-block;
+        @include font-one('Prompt', 500, 16px, 24px, 0.02em);
+        text-decoration: none;
+        margin-top: 80px;
+    }
+
+    @media screen and (max-width: 1280px) {
+        &__box {
+            top: 210px;
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        &__img {
+            max-width: 489px;
+            max-height: 629px;
+        }
+
+        &__box {
+            top: 210px;
+        }
+
+        &__title {
+            @include font('Prompt', 500, 38px, 44px, 0.02em);
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        &__box {
+            right: 5px;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        &__burger-btn {
+            width: 24px;
+            height: 24px;
+            background-image: url(../../../images/menu-mobile.svg);
+            position: absolute;
+            top: 16px;
+            left: 20px;
+        }
+
+        &__menu-btn {
+            font-size: 14px;
+            line-height: 20px;
+            top: 18px;
+            left: 60px;
+        }
+
+        &__box {
+            min-width: 280px;
+            top: 160px;
+            right: 40px;
+        }
+
+        &__title {
+            font-size: 24px;
+            line-height: 32px;
+            width: 100%;
+        }
+
+        &__subscrite-btn {
+            font-size: 14px;
+            line-height: 20px;
+            width: 100%;
+            height: 44px;
+        }
+
+        &__menu-container {
+            max-height: 360px;
+            width: 320px;
+        }
+
+        &__navigation {
+            margin-top: 75px;
+        }
+
+        &__link {
+            margin-top: 40px;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        &__box {
+            top: 111px;
+            right: 20px;
+        }
+
+        &__close-menu {
+            background-image: url(../../../images/icon-close-mob.svg);
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
