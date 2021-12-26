@@ -1,0 +1,186 @@
+$fColor: #FFFFFF;
+$btnFcolor: #0A0A0A;
+$fFamily: "Prompt", "arial", sans-serif;
+
+@mixin font($fFamily, $fw, $fs, $fh, $ls) {
+    font-family: $fFamily;
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: $fh;
+    letter-spacing: $ls;
+    color: $fColor;
+}
+
+@mixin btnFont($fFamily, $fw, $fs, $fh, $ls) {
+    font-family: $fFamily;
+    font-weight: $fw;
+    font-size: $fs;
+    line-height: $fh;
+    letter-spacing: $ls;
+    color: $btnFcolor;
+}
+
+%resetMargPadd {
+    margin: 0;
+    padding: 0;
+}
+
+.footer {
+    background-color: #0A0A0A;
+
+    &__title {
+        @extend %resetMargPadd;
+        @include font($fFamily, 400, 20px, 32px, 0);
+        max-width: 700px;
+        margin: 0 auto 0 auto;
+        padding-top: 40px;
+        text-align: center;
+    }
+
+    &__form {
+        max-width: 700px;
+        margin: 40px auto 0 auto;
+    }
+
+    &__email-info {
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__email-user {
+        border: 1px solid #666666;
+        outline: none;
+        background-color: transparent;
+        padding: 12px 24px 12px 24px;
+        margin: 0;
+        width: 76.1%;
+        color: #FFFFFF;
+
+        &::-ms-input-placeholder {
+            font-family: $fFamily;
+        }
+
+        &::-webkit-input-placeholder {color:#666666;}
+        &::-moz-placeholder {color:#666666;}
+        &::-ms-input-placeholder {color:#666666;}
+        &::placeholder {color:#666666;}
+    }
+
+    &__email-send {
+        border: none;
+        background-color: #FFFFFF;
+        width: 108px;
+        height: 48px;
+        padding: 12px 24px;
+        margin: 0;
+        @include btnFont($fFamily, 500, 16px, 24px, 0.02em);
+        transition: .5s linear;
+    }
+
+    &__email-send:hover {
+        cursor: pointer;
+        background-color: $btnFcolor;
+        color: #FFFFFF;
+    }
+
+    &__agreement {
+        display: flex;
+        border: none;
+        margin: 20px 0 0 0;
+        padding: 0;
+    }
+
+    &__checkbox-agree {
+        display: none;
+    }
+
+    &__label-agree {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        border: 1px solid #FFFFFF;
+        background-color: #0A0A0A;
+        text-align: center;
+        line-height: 18px;
+        transition: .3s linear;
+        opacity: 1;
+    }
+
+    &__label-agree:hover {
+        cursor: pointer;
+        opacity: 0.5;
+    }
+
+    &__checkbox-agree:checked + &__label-agree:after {
+        content: url(../../../images/agree.svg);
+    }
+
+    &__checkbox-text {
+        @extend %resetMargPadd;
+        @include font($fFamily, 400, 16px, 24px, 0);
+        max-width: 668px;
+        margin-left: 10px;
+    }
+
+    &__copyright {
+        @extend %resetMargPadd;
+        @include font($fFamily, 400, 20px, 32px, 0);
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    @media screen and (max-width: 768px) {
+        &__title {
+            width: 486px;
+        }
+
+        &__form {
+            max-width: 486px;
+        }
+
+        &__email-user {
+            width: 328px / 486px * 100%;
+        }
+
+        &__checkbox-text {
+            width: 454px / 486px * 100%;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        &__title {
+            max-width: 280px;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        &__form {
+            max-width: 280px;
+        }
+
+        &__email-user {
+            width: 65%;
+            border-right: 1px solid #666666;
+            padding: 10px 48px;
+        }
+
+        &__email-send {
+            width: 100%;
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        &__checkbox-text {
+            font-size: 14px;
+            line-height: 20px;
+        } 
+
+        &__copyright {
+            width: 280px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+}

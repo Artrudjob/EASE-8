@@ -1,0 +1,26 @@
+.page {
+    font-family: "Prompt", "arial", sans-serif;
+
+    &__header {
+        margin: 0 auto;
+    }
+
+    &__about {
+        margin: 0 auto;
+    }
+
+    &__looks {
+        margin: 0 auto;
+    }
+
+    &__footer {
+        margin: 0 auto;
+    }
+
+    @media screen and (max-width: 1440px) {
+        &__looks {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    }
+}

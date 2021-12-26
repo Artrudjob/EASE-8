@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "Prompt";
+  src: url(./Prompt-Medium.ttf) format("ttf"), url(./Prompt-Medium.woff) format("woff"), url(./Prompt-Medium.woff2) format("woff2");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Prompt";
+  src: url(./Prompt-Regular.ttf) format("ttf"), url(./Prompt-Regular.woff) format("woff"), url(./Prompt-Regular.woff2) format("woff2");
+  font-weight: 400;
+}/*# sourceMappingURL=fonts.css.map */
