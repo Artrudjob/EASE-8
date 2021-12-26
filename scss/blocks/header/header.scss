@@ -1,6 +1,7 @@
 $bkColor: #E7E7E2;
 $fontColor: #0A0A0A;
 $wColor: #FFFFFF;
+$fFamily: "Prompt", "arial", sans-serif;
 
 %resetStylesBtn {
     border: none;
@@ -9,8 +10,8 @@ $wColor: #FFFFFF;
     padding: 0;
 }
 
-@mixin font-one ($ff, $fw, $fs, $fh, $ls) {
-    font-family: $ff;
+@mixin font-one ($fFamily, $fw, $fs, $fh, $ls) {
+    font-family: $fFamily;
     font-weight: $fw;
     font-size: $fs;
     line-height: $fh;
@@ -28,6 +29,7 @@ $wColor: #FFFFFF;
 }
 
 .header {
+    max-width: 1440px;
     background-color: $bkColor;
     position: relative;
     
@@ -39,30 +41,36 @@ $wColor: #FFFFFF;
         position: absolute;
         top: 20px;
         left: 24px;
-    }
-
-    &__burger-btn_visibility_hidden {
-        visibility: hidden;
-    }
-
-    &__menu-btn_visibility_hidden {
-        visibility: hidden;
+        transition: .3s linear;
+        opacity: 1;
     }
 
     &__burger-btn:hover {
         cursor: pointer;
+        opacity: 0.5;
+    }
+
+    &__burger-btn_visibility {
+        visibility: hidden;
+    }
+
+    &__menu-btn_visibility {
+        visibility: hidden;
     }
 
     &__menu-btn {
         @extend %resetStylesBtn;
-        @include font('Prompt', 500, 16px, 24px, 0.02em);
+        @include font($fFamily, 500, 16px, 24px, 0.02em);
         position: absolute;
         top: 32px;
         left: 84px;
+        transition: .3s linear;
+        opacity: 1;
     }
 
     &__menu-btn:hover {
         cursor: pointer;
+        opacity: 0.5;
     }
 
     &__flex-container {
@@ -72,10 +80,12 @@ $wColor: #FFFFFF;
     }
 
     &__img {
-        max-width: 700px / 1400px * 100%;
-        overflow: hidden;
-        object-fit: cover;
-        max-height: 934px;
+        width: 700px;
+        height: 900px;
+        background-image: url(../../../images/header-blackman.png);
+        background-size: cover;
+        -moz-background-size:cover;
+        -webkit-background-size:cover;
     }
 
     &__box {
@@ -83,37 +93,39 @@ $wColor: #FFFFFF;
         min-width: 485px;
         position: absolute;
         top: 310px;
-        right: 20px;
+        right: 5px;
     }
 
     &__title {
-        @include font('Prompt', 500, 48px, 64px, 0.04em);
+        @include font($fFamily, 500, 48px, 64px, 0.04em);
         margin: 0;
+        margin-bottom: 40px;
         padding: 0;
         text-align: left;
     }
 
-    &__subscrite-btn {
-        @extend %resetStylesBtn;
-        @include font('Prompt', 500, 16px, 24px, 0.02em);
-        width: 350px;
-        height: 48px;
+    &__subscrite-link {
+        @include font($fFamily, 500, 16px, 24px, 0.02em);
         background-color: $fontColor;
         color: #FFFFFF;
-        margin-top: 32px;
+        padding: 12px 30.5px;
+        text-decoration: none;
+        transition: .5s linear;
     }
 
-    &__subscrite-btn:hover {
-        cursor: pointer;
+    &__subscrite-link:hover {
+        background-color: #FFFFFF;
+        color: $fontColor;
     }
 
     &__menu-container {
         width: 480px;
         height: 810px;
         background-color: #000000;
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
+        z-index: 1;
     }
 
     &__close-menu {
@@ -124,9 +136,16 @@ $wColor: #FFFFFF;
         object-fit: cover;
         width: 48px;
         height: 48px;
-        position: absolute;
+        position: fixed;
         top: 20px;
         left: 20px;
+        transition: .3s linear;
+        opacity: 1;
+    }
+
+    &__close-menu:hover {
+        cursor: pointer;
+        opacity: 0.5;
     }
 
     &__navigation {
@@ -138,9 +157,16 @@ $wColor: #FFFFFF;
 
     &__link {
         display: inline-block;
-        @include font-one('Prompt', 500, 16px, 24px, 0.02em);
+        @include font-one($fFamily, 500, 16px, 24px, 0.02em);
         text-decoration: none;
         margin-top: 80px;
+        transition: .3s linear;
+        opacity: 1;
+    }
+
+    &__link:hover {
+        cursor: pointer;
+        opacity: 0.5;
     }
 
     @media screen and (max-width: 1280px) {
@@ -152,25 +178,47 @@ $wColor: #FFFFFF;
     @media screen and (max-width: 1024px) {
         &__img {
             max-width: 489px;
-            max-height: 629px;
-        }
-
-        &__box {
-            top: 210px;
+            max-height: 646px;
         }
 
         &__title {
-            @include font('Prompt', 500, 38px, 44px, 0.02em);
+            @include font($fFamily, 500, 38px, 44px, 0.02em);
         }
     }
 
     @media screen and (max-width: 768px) {
+        &__title {
+            @include font($fFamily, 500, 32px, 40px, 0.04em);
+            margin-bottom: 43px;
+        }
+
         &__box {
-            right: 5px;
+            top: 223px;
+            right: 15px;
+        }
+
+        &__img {
+            width: 486px;
+            height: 646px;
+            background-image: url(../../../images/header-min.png);
+            background-repeat: no-repeat;
+            background-size: 486px 646px;
+            background-size: contain;
+            -moz-background-size:contain;
+            -webkit-background-size:contain;  
         }
     }
 
     @media screen and (max-width: 600px) {
+        &__img {
+            width: 320px;
+            height: 426px;
+            background-image: url(../../../images/header-mobile.png);
+            background-size: cover;
+            -moz-background-size:cover;
+            -webkit-background-size:cover; 
+        }
+
         &__burger-btn {
             width: 24px;
             height: 24px;
@@ -199,11 +247,11 @@ $wColor: #FFFFFF;
             width: 100%;
         }
 
-        &__subscrite-btn {
+        &__subscrite-link {
             font-size: 14px;
             line-height: 20px;
-            width: 100%;
-            height: 44px;
+            padding-left: 13.5px;
+            padding-right: 13.5px;
         }
 
         &__menu-container {

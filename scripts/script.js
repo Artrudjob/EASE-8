@@ -5,8 +5,8 @@ const menuBtn = document.querySelector('#menu-btn');
 let closeButton;
 
 function toggleMenuBtnVisibility() {
-    burgerBtn.classList.toggle('header__burger-btn_visibility_hidden');
-    menuBtn.classList.toggle('header__menu-btn_visibility_hidden');
+    burgerBtn.classList.toggle('header__burger-btn_visibility');
+    menuBtn.classList.toggle('header__menu-btn_visibility');
 }
 
 function openMenu() {
@@ -35,6 +35,7 @@ const imgs = document.querySelectorAll('.looks__img');
 const arrImgs = Array.from(imgs);
 
 function looksAnimate() {
+
     let totalCount = Math.floor(Math.random() * 3 + 1 );
     for (let i = 0; i < totalCount; i++) {
         const item = arrImgs[Math.floor(Math.random() * arrImgs.length)];
@@ -44,15 +45,11 @@ function looksAnimate() {
             if (el.classList.contains('looks__fadeOut')) {
                 el.classList.remove('looks__fadeOut');
                 el.classList.add('looks__fadeIn'); 
-                el.classList.remove('looks__img_visibility_hidden');
-            } else {
+            }  else if (document.getElementsByClassName('looks__fadeOut').length < 3) {
                 el.classList.remove('looks__fadeIn');
                 el.classList.add('looks__fadeOut');
-                setTimeout(function() {
-                    el.classList.add('looks__img_visibility_hidden');
-                }, 500)
             }
-        }    
+        }
     } 
 }
 

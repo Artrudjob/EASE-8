@@ -1,8 +1,9 @@
 $fColor: #FFFFFF;
 $btnFcolor: #0A0A0A;
+$fFamily: "Prompt", "arial", sans-serif;
 
-@mixin font($ff, $fw, $fs, $fh, $ls) {
-    font-family: $ff;
+@mixin font($fFamily, $fw, $fs, $fh, $ls) {
+    font-family: $fFamily;
     font-weight: $fw;
     font-size: $fs;
     line-height: $fh;
@@ -10,8 +11,8 @@ $btnFcolor: #0A0A0A;
     color: $fColor;
 }
 
-@mixin btnFont($ff, $fw, $fs, $fh, $ls) {
-    font-family: $ff;
+@mixin btnFont($fFamily, $fw, $fs, $fh, $ls) {
+    font-family: $fFamily;
     font-weight: $fw;
     font-size: $fs;
     line-height: $fh;
@@ -29,7 +30,7 @@ $btnFcolor: #0A0A0A;
 
     &__title {
         @extend %resetMargPadd;
-        @include font('Prompt', 400, 20px, 32px, 0);
+        @include font($fFamily, 400, 20px, 32px, 0);
         max-width: 700px;
         margin: 0 auto 0 auto;
         padding-top: 40px;
@@ -49,7 +50,6 @@ $btnFcolor: #0A0A0A;
 
     &__email-user {
         border: 1px solid #666666;
-        border-right: none;
         outline: none;
         background-color: transparent;
         padding: 12px 24px 12px 24px;
@@ -58,7 +58,7 @@ $btnFcolor: #0A0A0A;
         color: #FFFFFF;
 
         &::-ms-input-placeholder {
-            font-family: 'Prompt';
+            font-family: $fFamily;
         }
 
         &::-webkit-input-placeholder {color:#666666;}
@@ -74,7 +74,14 @@ $btnFcolor: #0A0A0A;
         height: 48px;
         padding: 12px 24px;
         margin: 0;
-        @include btnFont('Prompt', 500, 16px, 24px, 0.02em);
+        @include btnFont($fFamily, 500, 16px, 24px, 0.02em);
+        transition: .5s linear;
+    }
+
+    &__email-send:hover {
+        cursor: pointer;
+        background-color: $btnFcolor;
+        color: #FFFFFF;
     }
 
     &__agreement {
@@ -96,6 +103,13 @@ $btnFcolor: #0A0A0A;
         background-color: #0A0A0A;
         text-align: center;
         line-height: 18px;
+        transition: .3s linear;
+        opacity: 1;
+    }
+
+    &__label-agree:hover {
+        cursor: pointer;
+        opacity: 0.5;
     }
 
     &__checkbox-agree:checked + &__label-agree:after {
@@ -104,21 +118,21 @@ $btnFcolor: #0A0A0A;
 
     &__checkbox-text {
         @extend %resetMargPadd;
-        @include font('Prompt', 400, 16px, 24px, 0);
+        @include font($fFamily, 400, 16px, 24px, 0);
         max-width: 668px;
         margin-left: 10px;
     }
 
     &__copyright {
         @extend %resetMargPadd;
-        @include font('Prompt', 400, 20px, 32px, 0);
+        @include font($fFamily, 400, 20px, 32px, 0);
         text-align: center;
         padding: 40px 0;
     }
 
     @media screen and (max-width: 768px) {
         &__title {
-            max-width: 510px / 768px * 100%;
+            width: 486px;
         }
 
         &__form {

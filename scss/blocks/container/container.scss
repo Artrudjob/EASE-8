@@ -1,56 +1,19 @@
 $fontColor: #0A0A0A;
+$fFamily: "Prompt", "arial", sans-serif;
 
 %resetMargPadd {
     margin: 0;
     padding: 0;
 }
 
-@mixin font($ff, $fw, $fs, $fh, $ls) {
-    font-family: $ff;
+@mixin font($fFamily, $fw, $fs, $fh, $ls) {
+    font-family: $fFamily;
     font-weight: $fw;
     font-size: $fs;
     line-height: $fh;
     letter-spacing: $ls;
     color: $fontColor;
 }
-
-/*.container {
-    max-width: 1400px / 1440px * 100%;
-    margin: 0 auto 80px auto;
-    display: grid;
-    position: relative;
-    grid-template-columns: repeat(2, minmax(485px, 700px));
-
-    &:first-child {
-        margin-top: 80px;
-    }
-
-    &__title {
-        @extend %resetMargPadd;
-        @include font('Prompt', 500, 48px, 64px, 0.04em);
-    }
-
-    &__paragraph {
-        @extend %resetMargPadd;
-        @include font('Prompt', 400, 20px, 32px, 0);
-        align-self: center;
-    }
-
-    &__blockquote {
-        @extend %resetMargPadd;
-        @include font('Prompt', 500, 32px, 44px, 0.02em);
-        align-self: center;
-        z-index: 1;
-    }
-
-    &__model-first {
-        max-width: 700px / 1400px * 100%;
-        position: absolute;
-        top: 0;
-        right: 175px;
-        z-index: 0;
-    } 
-} */
 .container {
     max-width: 1400px / 1440px * 100%;
     margin: 0 auto 80px auto;
@@ -62,19 +25,19 @@ $fontColor: #0A0A0A;
 
     &__title {
         @extend %resetMargPadd;
-        @include font('Prompt', 500, 48px, 64px, 0.04em);
+        @include font($fFamily, 500, 48px, 64px, 0.04em);
         width: 700px / 1400px * 100%;
     }
 
     &__paragraph {
         @extend %resetMargPadd;
-        @include font('Prompt', 400, 20px, 32px, 0);
+        @include font($fFamily, 400, 20px, 32px, 0);
         width: 700px / 1400px * 100%;
     }
 
     &__blockquote {
         @extend %resetMargPadd;
-        @include font('Prompt', 500, 32px, 44px, 0.02em);
+        @include font($fFamily, 500, 32px, 44px, 0.02em);
         align-self: center;
         width: 700px / 1400px * 100%;
         z-index: 1;
@@ -82,10 +45,10 @@ $fontColor: #0A0A0A;
 
     &__blockquote-text {
         @extend %resetMargPadd;
+        margin-bottom: 24px;
     }
 
     &__author {
-        margin-top: 24px;
         @extend %resetMargPadd;
     }
 
@@ -103,7 +66,7 @@ $fontColor: #0A0A0A;
 
     &__model-second {
         max-width: 618px / 1400px * 100%;
-        margin-right: 82px;
+        margin-right: 62px;
         object-fit: cover;
     }
 
@@ -133,28 +96,29 @@ $fontColor: #0A0A0A;
         } 
     }
 
-    @media screen and (max-width: 1024px) {
-        &__blockquote {
-            @include font('Prompt', 500, 28px, 38px, 0.02em);
-        }
-    }
-
     @media screen and (max-width: 768px) {
-        &__container {
-            margin-top: 70px;
+        & { 
+            max-width: 728px / 768px * 100%;
+            margin: 70px auto 0 auto;
         }
 
         &:first-child {
-            margin-top: 80px;
+            margin-top: 60px;
         }
 
         &:last-child {
-            margin-top: 120px;
+            margin-top: 90px;
+            margin-bottom: 80px;
         }
         
         &__title {
+            max-width: 364px / 768px * 100%;
             font-size: 32px;
             line-height: 40px;
+        }
+
+        &__paragraph {
+            width: 373px;
         }
 
         &__blockquote {
@@ -165,17 +129,18 @@ $fontColor: #0A0A0A;
             max-width: 364px;
             max-height: 452px;
             margin-left: -115px;
-            align-self: center;
+            margin-top: 50px;
         }
 
         &__model-second {
             align-self: center;
             max-width: 304px;
             max-height: 304px;
+            margin-right: 60px;
         }
 
         &__model-third {
-            margin-left: -115px;
+            margin-left: -130px;
             max-width: 485px;
             max-height: 607px;
         }
@@ -183,9 +148,26 @@ $fontColor: #0A0A0A;
 
     @media screen and (max-width: 680px) {
         & {
-            flex-direction: column;
-        }
+            display: flex;
+            flex-direction: column-reverse;
+            margin: 40px auto 40px auto;
 
+
+            &:first-child {
+                flex-direction: column;
+                margin-top: 40px;
+            }
+
+            &:nth-child(3) {
+                flex-direction: column;
+            }
+
+            &:last-child {
+                margin-top: 40px;
+                margin-bottom: 35px;
+            }
+        }
+        
         &__paragraph {
             align-self: flex-start;
             width: 280px;
@@ -195,28 +177,8 @@ $fontColor: #0A0A0A;
             line-height: 24px;
         }
 
-        & {
-            display: flex;
-            flex-direction: column-reverse;
-            margin: 40px auto 40px auto;
-
-
-            &:first-child {
-                flex-direction: column;
-                margin-top: 65px;
-            }
-
-            &:nth-child(3) {
-                flex-direction: column;
-            }
-
-            &:last-child {
-                margin-top: 40px;
-            }
-        }
-
         &__title {
-            margin: 0 auto;
+            margin-left: 11px;
             width: 280px;
             font-size: 24px;
             line-height: 32px;

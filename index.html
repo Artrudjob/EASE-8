@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./page/index.css">
+        <link rel="stylesheet" href="./pages/index.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <title>EASY-08</title>
     </head>
@@ -13,13 +13,13 @@
             <button class="header__menu-btn" type="button" id="menu-btn" name="menu-btn">MENU</button>
             <div class="header__flex-container">
                 <a name="subscribe"></a>
-                <img class="header__img" src="./images/header-blackman.png" alt="A man dressed in a beige raincoat, with a beige bag on his shoulder.">
+                <div class="header__img"></div>
                 <div class="header__box">
                     <h1 class="header__title">GIVENCHY SPRING SUMMER 2021&nbsp;BY MATTHEW M. WILLIAMS</h1>
-                    <button class="header__subscrite-btn">SUBSCRIBE TO COLLECTION’S NEWS</button>
+                    <a class="header__subscrite-link" href="#">SUBSCRIBE TO COLLECTION’S NEWS</a>
                 </div>
             </div>
-        </header>
+        </header> 
         <main>
             <section class="about page__about">
                 <div class="container">
@@ -30,9 +30,8 @@
                 </div>
                 <div class="container">
                     <blockquote class="container__blockquote container__leftAnimation">
-                        <p class="container__blockquote-text">&laquo;To&nbsp;me, fashion expresses a&nbsp;point of&nbsp;view 
-                            where formality and informality, construction and comfort co-exist. My&nbsp;ethos is&nbsp;about 
-                            the luxury of&nbsp;infusing clothes with your own personality, not being worn by&nbsp;them,&raquo;</p>
+                        <p class="container__blockquote-text">“To me, fashion expresses a point of view where formality and informality, 
+                            construction and comfort co-exist. My ethos is about the luxury of infusing clothes with your own personality, not being worn by them,”</p>
                         <cite class="container__author">Matthew M. Williams.</cite>
                     </blockquote>
                     <img class="container__model-first container__rightAnimation" src="./images/about-redgirl.png" alt="Girl model on a red background in a red suit with a gold bag and chain.">
@@ -47,8 +46,8 @@
                 </div>
                 <div class="container">
                     <blockquote class="container__blockquote container__leftAnimation">
-                        <p class="container__blockquote-text">&laquo;In&nbsp;each of&nbsp;these portraits, a&nbsp;strong character wears
-                             a&nbsp;look that reflects who they are: they&rsquo;re the ones who bring the clothes to&nbsp;life.&raquo;</p>
+                        <p class="container__blockquote-text">“In each of these portraits, a strong character wears a look that reflects who they are:
+                             they’re the ones who bring the clothes to life.”</p>
                         <cite class="container__author">Matthew M. Williams.</cite>
                     </blockquote>
                     <img class="container__model-third container__rightAnimation" src="./images/about-girl.png" alt="Girl in a beige dress with a cutout on the back on a green background.">
@@ -60,26 +59,26 @@
                     <img class="looks__img" src="./images/one.png" alt="Girl with dreadlocks on a yellow background.">
                     <img class="looks__img" src="./images/two.png" alt="The guy in profile in a black cloak on a beige background.">
                     <img class="looks__img" src="./images/three.png" alt="The girl in sunglasses and with a chain on the neck on a yellow background.">
-                    <img class="looks__img looks__img_display_none" src="./images/four.png" alt="A guy in dark clothes sits on a white box.">
+                    <img class="looks__img looks__img_display" src="./images/four.png" alt="A guy in dark clothes sits on a white box.">
                     <img class="looks__img" src="./images/five.png" alt="A girl in white clothes with a white bag sits on an orange background.">
                     <img class="looks__img" src="./images/six.png" alt="Girl in a black leather suit on a red background.">
                     <img class="looks__img" src="./images/seven.png" alt="Girl in a green sweater on a beige background.">
-                    <img class="looks__img looks__img_display_none" src="./images/eight.png" alt="A guy in a white T-shirt with a handbag in his hands on a blue background.">
+                    <img class="looks__img looks__img_display" src="./images/eight.png" alt="A guy in a white T-shirt with a handbag in his hands on a blue background.">
                 </div>
             </section>
         </main>
         <footer class="footer page__footer">
-            <h2 class="footer__title">Subscribe to&nbsp;the newsletterand be&nbsp;the first to&nbsp;know about new collection&rsquo;s drop date and news</h2>
-            <form class="footer__form"> 
+            <h2 class="footer__title">Subscribe to the newsletterand be the first to know about new collection’s drop date and news</h2>
+            <form class="footer__form" name="subscription"> 
                 <fieldset class="footer__email-info">
                     <input class="footer__email-user" type="email" id="email" name="email-user" placeholder="Enter your email  here" required><button class="footer__email-send" 
                     type="submit" id="email-send" name="submit-info">SUBMIT</button>
                 </fieldset>
                 <fieldset class="footer__agreement">
-                    <input class="footer__checkbox-agree" type="checkbox" id="chkb-agree" name="agree">
+                    <input class="footer__checkbox-agree" type="checkbox" id="chkb-agree" name="agree" checked>
                     <label class="footer__label-agree" for="chkb-agree"></label>
-                    <p class="footer__checkbox-text">I&nbsp;consent to&nbsp;the processing of&nbsp;my&nbsp;data by&nbsp;GIVENCHY 
-                        in&nbsp;accordance with the conditions set forth in&nbsp;the Privacy Policy</p>
+                    <label class="footer__checkbox-text" for="chkb-agree">I&nbsp;consent to&nbsp;the processing of&nbsp;my&nbsp;data by&nbsp;GIVENCHY 
+                        in&nbsp;accordance with the conditions set forth in&nbsp;the Privacy Policy</label>
                 </fieldset>
             </form>
             <p class="footer__copyright">© 2021, Givenchy. Some rights reserved</p>

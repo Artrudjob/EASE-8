@@ -3,43 +3,6 @@
   padding: 0;
 }
 
-/*.container {
-    max-width: 1400px / 1440px * 100%;
-    margin: 0 auto 80px auto;
-    display: grid;
-    position: relative;
-    grid-template-columns: repeat(2, minmax(485px, 700px));
-
-    &:first-child {
-        margin-top: 80px;
-    }
-
-    &__title {
-        @extend %resetMargPadd;
-        @include font('Prompt', 500, 48px, 64px, 0.04em);
-    }
-
-    &__paragraph {
-        @extend %resetMargPadd;
-        @include font('Prompt', 400, 20px, 32px, 0);
-        align-self: center;
-    }
-
-    &__blockquote {
-        @extend %resetMargPadd;
-        @include font('Prompt', 500, 32px, 44px, 0.02em);
-        align-self: center;
-        z-index: 1;
-    }
-
-    &__model-first {
-        max-width: 700px / 1400px * 100%;
-        position: absolute;
-        top: 0;
-        right: 175px;
-        z-index: 0;
-    } 
-} */
 .container {
   max-width: 97.2222222222%;
   margin: 0 auto 80px auto;
@@ -49,7 +12,7 @@
   margin-top: 80px;
 }
 .container__title {
-  font-family: "Prompt";
+  font-family: "Prompt", "arial", sans-serif;
   font-weight: 500;
   font-size: 48px;
   line-height: 64px;
@@ -58,7 +21,7 @@
   width: 50%;
 }
 .container__paragraph {
-  font-family: "Prompt";
+  font-family: "Prompt", "arial", sans-serif;
   font-weight: 400;
   font-size: 20px;
   line-height: 32px;
@@ -67,7 +30,7 @@
   width: 50%;
 }
 .container__blockquote {
-  font-family: "Prompt";
+  font-family: "Prompt", "arial", sans-serif;
   font-weight: 500;
   font-size: 32px;
   line-height: 44px;
@@ -77,8 +40,8 @@
   width: 50%;
   z-index: 1;
 }
-.container__author {
-  margin-top: 24px;
+.container__blockquote-text {
+  margin-bottom: 24px;
 }
 .container__author {
   font-style: normal;
@@ -93,7 +56,7 @@
 }
 .container__model-second {
   max-width: 44.1428571429%;
-  margin-right: 82px;
+  margin-right: 62px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -124,29 +87,25 @@
             animation-duration: 1s;
   }
 }
-@media screen and (max-width: 1024px) {
-  .container__blockquote {
-    font-family: "Prompt";
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 38px;
-    letter-spacing: 0.02em;
-    color: #0A0A0A;
-  }
-}
 @media screen and (max-width: 768px) {
-  .container__container {
-    margin-top: 70px;
+  .container {
+    max-width: 94.7916666667%;
+    margin: 70px auto 0 auto;
   }
   .container:first-child {
-    margin-top: 80px;
+    margin-top: 60px;
   }
   .container:last-child {
-    margin-top: 120px;
+    margin-top: 90px;
+    margin-bottom: 80px;
   }
   .container__title {
+    max-width: 47.3958333333%;
     font-size: 32px;
     line-height: 40px;
+  }
+  .container__paragraph {
+    width: 373px;
   }
   .container__blockquote {
     max-width: 364px;
@@ -155,22 +114,36 @@
     max-width: 364px;
     max-height: 452px;
     margin-left: -115px;
-    align-self: center;
+    margin-top: 50px;
   }
   .container__model-second {
     align-self: center;
     max-width: 304px;
     max-height: 304px;
+    margin-right: 60px;
   }
   .container__model-third {
-    margin-left: -115px;
+    margin-left: -130px;
     max-width: 485px;
     max-height: 607px;
   }
 }
 @media screen and (max-width: 680px) {
   .container {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 40px auto 40px auto;
+  }
+  .container:first-child {
     flex-direction: column;
+    margin-top: 40px;
+  }
+  .container:nth-child(3) {
+    flex-direction: column;
+  }
+  .container:last-child {
+    margin-top: 40px;
+    margin-bottom: 35px;
   }
   .container__paragraph {
     align-self: flex-start;
@@ -180,23 +153,8 @@
     font-size: 16px;
     line-height: 24px;
   }
-  .container {
-    display: flex;
-    flex-direction: column-reverse;
-    margin: 40px auto 40px auto;
-  }
-  .container:first-child {
-    flex-direction: column;
-    margin-top: 65px;
-  }
-  .container:nth-child(3) {
-    flex-direction: column;
-  }
-  .container:last-child {
-    margin-top: 40px;
-  }
   .container__title {
-    margin: 0 auto;
+    margin-left: 11px;
     width: 280px;
     font-size: 24px;
     line-height: 32px;

@@ -1,7 +1,8 @@
 $fontColor: #0A0A0A;
+$fFamily: "Prompt", "arial", sans-serif;
 
-@mixin font($ff, $fw, $fs, $fh, $ls) {
-    font-family: $ff;
+@mixin font($fFamily, $fw, $fs, $fh, $ls) {
+    font-family: $fFamily;
     font-weight: $fw;
     font-size: $fs;
     line-height: $fh;
@@ -20,7 +21,7 @@ $fontColor: #0A0A0A;
 
     &__title {
         @extend %resetMargPadd;
-        @include font('Prompt', 500, 48px, 64px, 0.04em);
+        @include font($fFamily, 500, 48px, 64px, 0.04em);
     }
 
     &__grid-container {
@@ -32,19 +33,33 @@ $fontColor: #0A0A0A;
     }
 
     &__fadeIn {
-        animation: fadeIn;
-        animation-duration: .5s;
+        animation: fadeIn ease 1s;
+        opacity: 1;
     }
 
     &__fadeOut {
-        animation: fadeOut;
-        animation-duration: .5s;
+        animation: fadeOut ease 1s;
+        opacity: 0;
     }
 
-    &__img_visibility_hidden {
-        visibility: hidden;
+    @keyframes fadeIn{
+        0% {
+          opacity:0;
+        }
+        100% {
+          opacity:1;
+        }
     }
 
+    @keyframes fadeOut{
+        0% {
+          opacity:1;
+        }
+        100% {
+          opacity:0;
+        }
+    }
+    
     @media screen and (max-width: 768px) {
         &__title {
             font-size: 32px;
@@ -53,9 +68,10 @@ $fontColor: #0A0A0A;
 
         &__grid-container {
             grid-template-columns: repeat(3, minmax(140px, 243px));
+            margin-bottom: 70px;
         }
         
-        &__img_display_none {
+        &__img_display {
             display: none;
         }
     }
